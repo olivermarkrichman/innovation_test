@@ -17,6 +17,8 @@ ul {
     width: 500px;
     margin: 0 auto;
     box-shadow: 0px 5px 30px #999;
+    border-radius: 5px;
+    overflow: hidden;
     li {
         padding: 13px 20px; 
         border: 1px #ccc solid;
@@ -41,10 +43,6 @@ ul {
     }
     li:first-child {
         border-top: 1px #ccc solid;
-        border-radius: 5px 5px 0px 0px;
-    }
-    li:last-child {
-        border-radius: 0px 0px 5px 5px;
     }
 }
 h1 {
