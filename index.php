@@ -15,23 +15,49 @@
             <h2>Question 1</h2>
             <p>This is an example question?</p>
         </li>
-        <li>Question 2</li>
-        <li>Question 3</li>
-        <li>Question 4</li>
-        <li>Question 5</li>
-        <li>Question 6</li>
-        <li>Question 7</li>
-        <li>Question 8</li>
-        <li>Question 9</li>
-        <li>Question 10</li>
+        <li>
+            <h2>Question 2</h2>
+            <p>This is an example question?</p>
+        </li>
+        <li>
+            <h2>Question 3</h2>
+            <p>This is an example question?</p>
+        </li>
+        <li>
+            <h2>Question 4</h2>
+            <p>This is an example question?</p>
+        </li>
+        <li>
+            <h2>Question 5</h2>
+            <p>This is an example question?</p>
+        </li>
+        <li>
+            <h2>Question 6</h2>
+            <p>This is an example question?</p>
+        </li>
+        <li>
+            <h2>Question 7</h2>
+            <p>This is an example question?</p>
+        <li>
+            <h2>Question 8</h2>
+            <p>This is an example question?</p>
+        </li>
+        <li>
+            <h2>Question 9</h2>
+            <p>This is an example question?</p>
+        </li>
+        <li>
+            <h2>Question 10</h2>
+            <p>This is an example question?</p>
+        </li>
     </ul>
     <!-- Create HTML Canvas Element -->
     <canvas id="lightbulb_canvas" width="400px" height="400px"></canvas>
     <script>
         //Create canvas
         var canvas = document.getElementById('lightbulb_canvas'),
-        ctx = canvas.getContext('2d');
-        //Draw R2D2 function
+        c = canvas.getContext('2d');
+        //Draw Lightbulb function
         draw_lightbulb();
     </script>
 </body>

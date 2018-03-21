@@ -3,7 +3,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #eee;
+  background: #444444;
   font-size: 13px;
   font-family: 'Muli', sans-serif;
   font-weight: 300;
@@ -31,5 +31,9 @@ ul li:first-child {
 
 ul li:last-child {
   border-radius: 0px 0px 5px 5px;
+}
+
+h1 {
+  padding: 5px 15px;
 }
 /*# sourceMappingURL=style.css.map */
