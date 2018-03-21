@@ -14,6 +14,7 @@
         <li>
             <h2>Question 1</h2>
             <p>This is an example question?</p>
+            <input type="range" value="0" min="0" max="10" />
         </li>
         <li>
             <h2>Question 2</h2>
