@@ -22,5 +22,14 @@
         <li>Question 9</li>
         <li>Question 10</li>
     </ul>
+    <!-- Create HTML Canvas Element -->
+    <canvas id="lightbulb_canvas" width="400px" height="400px"></canvas>
+    <script>
+        //Create canvas
+        var canvas = document.getElementById('lightbulb_canvas'),
+        ctx = canvas.getContext('2d');
+        //Draw R2D2 function
+        draw_lightbulb();
+    </script>
 </body>
 </html>
