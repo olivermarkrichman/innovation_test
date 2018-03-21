@@ -22,8 +22,7 @@ ul {
 
 ul li {
   padding: 13px 20px;
-  border: 1px #ccc solid;
-  border-top: none;
+  border-bottom: 1px #ccc solid;
   background: #fff;
 }
 
@@ -46,8 +45,8 @@ ul li input[type=range] {
   width: 100%;
 }
 
-ul li:first-child {
-  border-top: 1px #ccc solid;
+ul li:last-child {
+  border-bottom: none;
 }
 
 h1 {
