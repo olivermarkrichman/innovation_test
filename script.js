@@ -1,9 +1,9 @@
 //Function to draw the lightbulb 
 function draw_lightbulb() {
     //Examples
-    // rect(10,10,50,50,"#ffffff");
-    // text("tom",200,200,"18px Arial","center","#00ff00");
-    // a_text("oliver",300,300,0,"18px Arial","#0000ff");
+    //rect(10,10,50,50,"#ffffff");
+    //text("tom",200,200,"18px Arial","center","#00ff00");
+    //a_text("oliver",300,300,0,"18px Arial","#0000ff");
     //circle(200,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
 }
 //Function to generate polygons.

@@ -19,37 +19,46 @@
         <li>
             <h2>Question 2</h2>
             <p>This is an example question?</p>
+            <input type="range" value="5" min="0" max="10" />
         </li>
         <li>
             <h2>Question 3</h2>
             <p>This is an example question?</p>
+            <input type="range" value="5" min="0" max="10" />
         </li>
         <li>
             <h2>Question 4</h2>
             <p>This is an example question?</p>
+            <input type="range" value="5" min="0" max="10" />
         </li>
         <li>
             <h2>Question 5</h2>
             <p>This is an example question?</p>
+            <input type="range" value="5" min="0" max="10" />
         </li>
         <li>
             <h2>Question 6</h2>
             <p>This is an example question?</p>
+            <input type="range" value="5" min="0" max="10" />
         </li>
         <li>
             <h2>Question 7</h2>
             <p>This is an example question?</p>
+            <input type="range" value="5" min="0" max="10" />
         <li>
             <h2>Question 8</h2>
             <p>This is an example question?</p>
+            <input type="range" value="5" min="0" max="10" />
         </li>
         <li>
             <h2>Question 9</h2>
             <p>This is an example question?</p>
+            <input type="range" value="5" min="0" max="10" />
         </li>
         <li>
             <h2>Question 10</h2>
             <p>This is an example question?</p>
+            <input type="range" value="5" min="0" max="10" />
         </li>
     </ul>
     <!-- Create HTML Canvas Element -->
