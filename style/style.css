@@ -15,11 +15,11 @@ ul {
   list-style: none;
   width: 500px;
   margin: 0 auto;
-  box-shadow: 0px 10px 20px #000;
+  box-shadow: 0px 10px 20px #222;
 }
 
 ul li {
-  padding: 15px 10px;
+  padding: 10px 20px;
   border: 1px #ccc solid;
   border-top: none;
   background: #fff;
@@ -36,7 +36,11 @@ ul li h2 {
 }
 
 ul li p {
-  font-size: 16px;
+  font-size: 20px;
+}
+
+ul li input[type=range] {
+  width: 100%;
 }
 
 ul li:first-child {
