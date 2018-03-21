@@ -9,10 +9,10 @@
     <script src="script.js"></script>
 </head>
 <body>
+    <h1>Innovation Test</h1>
     <ul>
-        <h1>Innovation Test</h1>
         <li>
-            <h1>Question 1</h1>
+            <h2>Question 1</h2>
             <p>This is an example question?</p>
         </li>
         <li>Question 2</li>

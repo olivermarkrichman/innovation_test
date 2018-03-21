@@ -4,6 +4,7 @@ html,body {
     margin: 0;
     padding: 0;
     background: #eee;
+    font-size: 13px;
     font-family: 'Muli', sans-serif;
     font-weight: 300;
 }
@@ -13,6 +14,9 @@ ul {
     list-style: none;
     width: 500px;
     margin: 0 auto;
+}
+h1 {
+    font-size: 36px;
 }
 ul li:first-child {
     border-top: 1px #ccc solid;
@@ -27,17 +31,18 @@ ul li {
     border-top: none;
     background: #fff;
 }
-ul li h1 {
+ul li h2 {
     padding: 0;
     margin: 0;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
-    color: #ccc;
+    color: #aaa;
     margin-bottom: 10px;
+    text-transform: uppercase;
 }
 ul li p {
     padding: 0;
     margin: 0;
-    font-size: 16px;
+    font-size: 22px;
 }
