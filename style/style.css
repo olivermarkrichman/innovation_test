@@ -24,6 +24,20 @@ ul li {
   background: #fff;
 }
 
+ul li h2 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #aaa;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+ul li p {
+  font-size: 16px;
+}
+
 ul li:first-child {
   border-top: 1px #ccc solid;
   border-radius: 5px 5px 0px 0px;
