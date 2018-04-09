@@ -71,7 +71,8 @@
         var canvas = document.getElementById('lightbulb_canvas'),
         c = canvas.getContext('2d');
         //Draw Lightbulb function
-        draw_lightbulb();
+        //draw_lightbulb();
+        
     </script>
 </body>
 </html>
