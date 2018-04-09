@@ -72,13 +72,6 @@
         c = canvas.getContext('2d');
         //Draw Lightbulb function
         draw_lightbulb();
-        $("input[type=range]").on("change", function() {
-            $("input[type=range]").each(function() {
-                //var sliderResult[index] = $(this).val();
-                
-            });
-        });
-        
     </script>
 </body>
 </html>
