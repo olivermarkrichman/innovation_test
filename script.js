@@ -18,10 +18,10 @@ function rect(x,y,width,height,fillcolour) {
 }
 //Function to generate circles.
 function circle(x, y, radius, startangle, endangle, clockboolean,fillcolour,stroke,strokecolour) {
-    c.fillStyle = fillcolour;
-    c.beginPath();
-    c.arc(x, y, radius, startangle, endangle, clockboolean);
-    c.fill();
+    c.fillStyle = fillcolour; //Set the fill colour
+    c.beginPath(); //Begin shape path
+    c.arc(x, y, radius, startangle, endangle, clockboolean); //Run arguments through canvas arc function
+    c.fill(); //Fill shape.
     //Checking to see if stroke has been set
     if (stroke == true) {
         //sc allows different stroke colours to be applied when calling the function
@@ -48,3 +48,14 @@ function a_text(text,newx,newy,angle,font,fillcolour) {
     c.fillText(text, 0, 0); //Write the text, x and y set to 0 for translation purposes.
     c.restore(); //Restore saved position on canvas.
 }
+
+    $question_1 = $(".questions li:nth-child(1) input").val();
+    $question_2 = $(".questions li:nth-child(2) input").val();
+    $question_3 = $(".questions li:nth-child(3) input").val();
+    $question_4 = $(".questions li:nth-child(4) input").val();
+    $question_5 = $(".questions li:nth-child(5) input").val();
+    $question_6 = $(".questions li:nth-child(6) input").val();
+    $question_7 = $(".questions li:nth-child(7) input").val();
+    $question_8 = $(".questions li:nth-child(8) input").val();
+    $question_9 = $(".questions li:nth-child(9) input").val();
+    $question_10 = $(".questions li:nth-child(10) input").val();
