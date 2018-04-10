@@ -1,11 +1,19 @@
-//Function to draw the lightbulb 
-function draw_lightbulb(x) {
+//Function to draw the gauge 
+function draw_gauge() {
 
     //Examples
     //rect(10,10,50,50,"#ffffff");
     //text("tom",200,200,"18px Arial","center","#00ff00");
     //a_text("oliver",300,300,0,"18px Arial","#0000ff");
-    circle(x,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
+    //circle(250,150,120,0,2*Math.PI,true,"#fff000");
+    circle(canvas.width/2,canvas.height/2,240,0,2*Math.PI,true,"#eee");
+    circle(canvas.width/2,canvas.height/2,210,0,2*Math.PI,true,"#333");
+    circle(canvas.width/2,canvas.height/2+100,30,0,2*Math.PI,true,"#ee5500");
+    text("BAD",70,canvas.height/2,"32px Arial","left","#f00");
+    text("GOOD",430,canvas.height/2,"32px Arial","right","#fff");
+    rect(80,canvas.height/2-50,40,10,"#fff");//Left notch
+    rect(380,canvas.height/2-50,40,10,"#fff");//Right notch
+
 }
 //Function to generate polygons.
 function poly() {
@@ -55,7 +63,7 @@ $(document).ready(function() {
     $("input[type=range]").on("change", function() {
         $("input[type=range]").each(function(index) {
             sliderResult[index] = $(this).val();
-            draw_lightbulb(sliderResult[0]*10);
+            draw_gauge(sliderResult[0]*10);
             //circle(sliderResult[0]*10,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
             //console.log(sliderResult[0]);
         });

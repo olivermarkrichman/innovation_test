@@ -65,13 +65,13 @@
 
     <p class="questionvalues"></p>
     <!-- Create HTML Canvas Element -->
-    <canvas id="lightbulb_canvas" width="400px" height="400px"></canvas>
+    <canvas id="gauge_canvas" width="500px" height="500px" style="background-color:#ee5500"></canvas>
     <script>
         //Create canvas
-        var canvas = document.getElementById('lightbulb_canvas'),
+        var canvas = document.getElementById('gauge_canvas'),
         c = canvas.getContext('2d');
-        //Draw Lightbulb function
-        //draw_lightbulb();
+        //Draw Gauge function
+        draw_gauge();
     </script>
 </body>
 </html>
