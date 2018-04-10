@@ -1,10 +1,10 @@
 //Function to draw the lightbulb 
-function draw_lightbulb() {
+function draw_lightbulb(result1) {
     //Examples
     //rect(10,10,50,50,"#ffffff");
     //text("tom",200,200,"18px Arial","center","#00ff00");
     //a_text("oliver",300,300,0,"18px Arial","#0000ff");
-    //circle(200,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
+    circle(result1,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
 }
 //Function to generate polygons.
 function poly() {
@@ -48,14 +48,12 @@ function a_text(text,newx,newy,angle,font,fillcolour) {
     c.fillText(text, 0, 0); //Write the text, x and y set to 0 for translation purposes.
     c.restore(); //Restore saved position on canvas.
 }
-
-    $question_1 = $(".questions li:nth-child(1) input").val();
-    $question_2 = $(".questions li:nth-child(2) input").val();
-    $question_3 = $(".questions li:nth-child(3) input").val();
-    $question_4 = $(".questions li:nth-child(4) input").val();
-    $question_5 = $(".questions li:nth-child(5) input").val();
-    $question_6 = $(".questions li:nth-child(6) input").val();
-    $question_7 = $(".questions li:nth-child(7) input").val();
-    $question_8 = $(".questions li:nth-child(8) input").val();
-    $question_9 = $(".questions li:nth-child(9) input").val();
-    $question_10 = $(".questions li:nth-child(10) input").val();
+var sliderResult = [];
+var index = 0;
+    $("input[type=range]").on("change", function() {
+        $("input[type=range]").each(function(index) {
+            sliderResult[index] = $(this).val();
+        });
+        var result1 = sliderResult[0];
+        draw_lightbulb(result1);
+    });
