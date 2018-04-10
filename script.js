@@ -1,10 +1,11 @@
 //Function to draw the lightbulb 
-function draw_lightbulb(result1) {
+function draw_lightbulb(x) {
+
     //Examples
     //rect(10,10,50,50,"#ffffff");
     //text("tom",200,200,"18px Arial","center","#00ff00");
     //a_text("oliver",300,300,0,"18px Arial","#0000ff");
-    circle(result1,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
+    circle(x,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
 }
 //Function to generate polygons.
 function poly() {
@@ -48,12 +49,15 @@ function a_text(text,newx,newy,angle,font,fillcolour) {
     c.fillText(text, 0, 0); //Write the text, x and y set to 0 for translation purposes.
     c.restore(); //Restore saved position on canvas.
 }
-var sliderResult = [];
-var index = 0;
+$(document).ready(function() {
+    var sliderResult = [];
+    var index = 0;
     $("input[type=range]").on("change", function() {
         $("input[type=range]").each(function(index) {
             sliderResult[index] = $(this).val();
+            draw_lightbulb(sliderResult[0]*10);
+            //circle(sliderResult[0]*10,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
+            //console.log(sliderResult[0]);
         });
-        var result1 = sliderResult[0];
-        draw_lightbulb(result1);
     });
+});
