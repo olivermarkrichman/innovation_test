@@ -72,7 +72,6 @@
         c = canvas.getContext('2d');
         //Draw Lightbulb function
         //draw_lightbulb();
-        //slider_result();
     </script>
 </body>
 </html>
