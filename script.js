@@ -49,9 +49,17 @@ function a_text(text,newx,newy,angle,font,fillcolour) {
     c.fillText(text, 0, 0); //Write the text, x and y set to 0 for translation purposes.
     c.restore(); //Restore saved position on canvas.
 }
+
+function radar() {
+    //Draw radar
+    r.moveTo(0,0);
+    r.lineTo(300,150);
+}
+
 $(document).ready(function() {
     var sliderResult = [];
     var index = 0;
+    //jsonRequest();
     $("input[type=range]").on("change", function() {
         $("input[type=range]").each(function(index) {
             sliderResult[index] = $(this).val();

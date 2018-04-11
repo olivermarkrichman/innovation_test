@@ -37,41 +37,18 @@
             <p>This is an example question?</p>
             <input type="range" value="5" min="0" max="10" />
         </li>
-        <li>
-            <h2>Question 6</h2>
-            <p>This is an example question?</p>
-            <input type="range" value="5" min="0" max="10" />
-        </li>
-        <li>
-            <h2>Question 7</h2>
-            <p>This is an example question?</p>
-            <input type="range" value="5" min="0" max="10" />
-        <li>
-            <h2>Question 8</h2>
-            <p>This is an example question?</p>
-            <input type="range" value="5" min="0" max="10" />
-        </li>
-        <li>
-            <h2>Question 9</h2>
-            <p>This is an example question?</p>
-            <input type="range" value="5" min="0" max="10" />
-        </li>
-        <li>
-            <h2>Question 10</h2>
-            <p>This is an example question?</p>
-            <input type="range" value="5" min="0" max="10" />
-        </li>
     </ul>
 
     <p class="questionvalues"></p>
     <!-- Create HTML Canvas Element -->
     <canvas id="lightbulb_canvas" width="400px" height="400px"></canvas>
+    <canvas id="radar_canvas" width="400px" height="400px" style="width:400px; height:400px;"></canvas>
     <script>
         //Create canvas
         var canvas = document.getElementById('lightbulb_canvas'),
-        c = canvas.getContext('2d');
-        //Draw Lightbulb function
-        //draw_lightbulb();
+        gaugue = canvas.getContext('2d');
+        var canvas2 = document.getElementById('radar_canvas'),
+        radar = canvas2.getContext('2d');
     </script>
 </body>
 </html>
