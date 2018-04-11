@@ -41,14 +41,14 @@
 
     <p class="questionvalues"></p>
     <!-- Create HTML Canvas Element -->
-    <canvas id="lightbulb_canvas" width="400px" height="400px"></canvas>
+    <canvas id="gauge_canvas" width="500px" height="500px" style="background-color:#ee5500"></canvas>
     <canvas id="radar_canvas" width="400px" height="400px" style="width:400px; height:400px;"></canvas>
     <script>
         //Create canvas
-        var canvas = document.getElementById('lightbulb_canvas'),
-        gaugue = canvas.getContext('2d');
-        var canvas2 = document.getElementById('radar_canvas'),
-        radar = canvas2.getContext('2d');
+        var canvas = document.getElementById('gauge_canvas'),
+        c = canvas.getContext('2d');
+        //Draw Gauge function
+        draw_gauge();
     </script>
 </body>
 </html>

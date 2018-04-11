@@ -1,21 +1,45 @@
-//Function to draw the lightbulb 
-function draw_lightbulb(x) {
+//Function to draw the gauge 
+function draw_gauge() {
 
     //Examples
     //rect(10,10,50,50,"#ffffff");
+    //rect(10,10,50,50,"#ffffff",0.5); Rotated rectangle
     //text("tom",200,200,"18px Arial","center","#00ff00");
     //a_text("oliver",300,300,0,"18px Arial","#0000ff");
-    circle(x,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
+    //circle(250,150,120,0,2*Math.PI,true,"#fff000");
+    circle(canvas.width/2,canvas.height/2,240,0,2*Math.PI,true,"#eee");
+    circle(canvas.width/2,canvas.height/2,210,0,2*Math.PI,true,"#333");    
+    text("BAD",70,canvas.height/2,"32px Arial","left","#f00");
+    text("GOOD",430,canvas.height/2,"32px Arial","right","#fff");
+    rect(80,canvas.height/2-50,40,10,"#f00");//Left notch
+    rect(150,canvas.height/2-110,40,10,"#f55",-0.8);//Angled left notch
+    rect(canvas.width/2,canvas.height/2-190,10,40,"#fbb"); //Middle notch
+    rect(350,canvas.height/2-110,40,10,"#fdd",0.8);//Angled right notch
+    rect(380,canvas.height/2-50,40,10,"#fff");//Right notch
+    rect(canvas.width/2,canvas.height/2-30,20,-150,"#ee5500",0.4,true,-10,0);//Dial - change angle to set the dial wherever
+    circle(canvas.width/2,canvas.height/2-30,30,0,2*Math.PI,true,"#fff");
 }
 //Function to generate polygons.
 function poly() {
 
 }
 //Function to generate rectangles.
-function rect(x,y,width,height,fillcolour) {
+function rect(x,y,width,height,fillcolour,angle,rotateoffset,urx,ury) {
+    rx = 0;
+    ry = 0;
+    if (rotateoffset == true) {
+        rx = urx;
+        ry = ury;
+    }
+    c.beginPath();
+    c.save(); //Save current canvas position/
+    c.translate(x, y); //Translate to enable easy rotation - these x and y positions are still where you want the rectangle to be.
+    c.rotate(angle-Math.PI/2); //Rotates the rectangle by the set angle
     c.fillStyle = fillcolour; //Colour of rectangle.
-    c.rect(x,y,width,height); //Draw rectangle choosing x and y position and width and height.
+    c.rect(rx,ry,width,height); //Draw rectangle choosing x and y position and width and height.
     c.fill(); //Fill rectangle.
+    c.restore(); //Restore saved position on canvas.
+    c.closePath();
 }
 //Function to generate circles.
 function circle(x, y, radius, startangle, endangle, clockboolean,fillcolour,stroke,strokecolour) {
@@ -63,7 +87,7 @@ $(document).ready(function() {
     $("input[type=range]").on("change", function() {
         $("input[type=range]").each(function(index) {
             sliderResult[index] = $(this).val();
-            draw_lightbulb(sliderResult[0]*10);
+            draw_gauge(sliderResult[0]*10);
             //circle(sliderResult[0]*10,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
             //console.log(sliderResult[0]);
         });
