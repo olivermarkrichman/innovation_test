@@ -16,7 +16,7 @@ function draw_gauge() {
     rect(canvas.width/2,canvas.height/2-190,10,40,"#fbb"); //Middle notch
     rect(350,canvas.height/2-110,40,10,"#fdd",0.8);//Angled right notch
     rect(380,canvas.height/2-50,40,10,"#fff");//Right notch
-    rect(canvas.width/2,canvas.height/2-30,20,-150,"#fff",0.4,true,-10,0);//Dial - change angle to set the dial wherever
+    rect(canvas.width/2,canvas.height/2-30,20,-150,"#fff",0.8,true,-10,0);//Dial - change angle to set the dial wherever
     circle(canvas.width/2,canvas.height/2-30,30,0,2*Math.PI,true,"#ee5500");
 }
 //Function to generate polygons.

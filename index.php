@@ -41,12 +41,8 @@
 
     <p class="questionvalues"></p>
     <!-- Create HTML Canvas Element -->
-<<<<<<< HEAD
     <canvas id="gauge_canvas" width="500px" height="500px" style="background-color:#ee5500"></canvas>
     <canvas id="radar_canvas" width="400px" height="400px" style="width:400px; height:400px;"></canvas>
-=======
-    <canvas id="gauge_canvas" width="500px" height="500px" style="background-color:#eee"></canvas>
->>>>>>> 13f336629a50dc75c28c09f95f80c266b48a50cd
     <script>
         //Create canvas
         var canvas = document.getElementById('gauge_canvas'),
