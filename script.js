@@ -8,30 +8,38 @@ function draw_gauge() {
     //a_text("oliver",300,300,0,"18px Arial","#0000ff");
     //circle(250,150,120,0,2*Math.PI,true,"#fff000");
     circle(canvas.width/2,canvas.height/2,240,0,2*Math.PI,true,"#eee");
-    circle(canvas.width/2,canvas.height/2,210,0,2*Math.PI,true,"#333");
-    circle(canvas.width/2,canvas.height/2+100,30,0,2*Math.PI,true,"#ee5500");
+    circle(canvas.width/2,canvas.height/2,210,0,2*Math.PI,true,"#333");    
     text("BAD",70,canvas.height/2,"32px Arial","left","#f00");
     text("GOOD",430,canvas.height/2,"32px Arial","right","#fff");
-    rect(80,canvas.height/2-50,40,10,"#fff");//Left notch
-    rect(150,canvas.height/2-110,40,10,"#fff",-0.8);
-    rect(canvas.width/2,canvas.height/2-190,10,40,"#fff"); //Middle notch
-    rect(350,canvas.height/2-110,40,10,"#fff",0.8);
+    rect(80,canvas.height/2-50,40,10,"#f00");//Left notch
+    rect(150,canvas.height/2-110,40,10,"#f55",-0.8);//Angled left notch
+    rect(canvas.width/2,canvas.height/2-190,10,40,"#fbb"); //Middle notch
+    rect(350,canvas.height/2-110,40,10,"#fdd",0.8);//Angled right notch
     rect(380,canvas.height/2-50,40,10,"#fff");//Right notch
-
+    rect(canvas.width/2,canvas.height/2-30,20,-150,"#ee5500",0.4,true,-10,0);//Dial - change angle to set the dial wherever
+    circle(canvas.width/2,canvas.height/2-30,30,0,2*Math.PI,true,"#fff");
 }
 //Function to generate polygons.
 function poly() {
 
 }
 //Function to generate rectangles.
-function rect(x,y,width,height,fillcolour,angle) {
+function rect(x,y,width,height,fillcolour,angle,rotateoffset,urx,ury) {
+    rx = 0;
+    ry = 0;
+    if (rotateoffset == true) {
+        rx = urx;
+        ry = ury;
+    }
+    c.beginPath();
     c.save(); //Save current canvas position/
-    c.translate(x, y); //Translate to enable easy rotation - these x and y positions are still where you want the text to be.
-    c.rotate(angle-Math.PI/2); //Rotates the text by the set angle
+    c.translate(x, y); //Translate to enable easy rotation - these x and y positions are still where you want the rectangle to be.
+    c.rotate(angle-Math.PI/2); //Rotates the rectangle by the set angle
     c.fillStyle = fillcolour; //Colour of rectangle.
-    c.rect(0,0,width,height); //Draw rectangle choosing x and y position and width and height.
+    c.rect(rx,ry,width,height); //Draw rectangle choosing x and y position and width and height.
     c.fill(); //Fill rectangle.
     c.restore(); //Restore saved position on canvas.
+    c.closePath();
 }
 //Function to generate circles.
 function circle(x, y, radius, startangle, endangle, clockboolean,fillcolour,stroke,strokecolour) {
