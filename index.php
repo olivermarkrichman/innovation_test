@@ -65,7 +65,7 @@
 
     <p class="questionvalues"></p>
     <!-- Create HTML Canvas Element -->
-    <canvas id="gauge_canvas" width="500px" height="500px" style="background-color:#ee5500"></canvas>
+    <canvas id="gauge_canvas" width="500px" height="500px" style="background-color:#eee"></canvas>
     <script>
         //Create canvas
         var canvas = document.getElementById('gauge_canvas'),

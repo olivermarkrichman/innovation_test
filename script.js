@@ -7,8 +7,8 @@ function draw_gauge() {
     //text("tom",200,200,"18px Arial","center","#00ff00");
     //a_text("oliver",300,300,0,"18px Arial","#0000ff");
     //circle(250,150,120,0,2*Math.PI,true,"#fff000");
-    circle(canvas.width/2,canvas.height/2,240,0,2*Math.PI,true,"#eee");
-    circle(canvas.width/2,canvas.height/2,210,0,2*Math.PI,true,"#333");    
+    circle(canvas.width/2,canvas.height/2,240,0,2*Math.PI,true,"#aaa");
+    circle(canvas.width/2,canvas.height/2,210,0,2*Math.PI,true,"#777");    
     text("BAD",70,canvas.height/2,"32px Arial","left","#f00");
     text("GOOD",430,canvas.height/2,"32px Arial","right","#fff");
     rect(80,canvas.height/2-50,40,10,"#f00");//Left notch
@@ -16,8 +16,8 @@ function draw_gauge() {
     rect(canvas.width/2,canvas.height/2-190,10,40,"#fbb"); //Middle notch
     rect(350,canvas.height/2-110,40,10,"#fdd",0.8);//Angled right notch
     rect(380,canvas.height/2-50,40,10,"#fff");//Right notch
-    rect(canvas.width/2,canvas.height/2-30,20,-150,"#ee5500",0.4,true,-10,0);//Dial - change angle to set the dial wherever
-    circle(canvas.width/2,canvas.height/2-30,30,0,2*Math.PI,true,"#fff");
+    rect(canvas.width/2,canvas.height/2-30,20,-150,"#fff",0.4,true,-10,0);//Dial - change angle to set the dial wherever
+    circle(canvas.width/2,canvas.height/2-30,30,0,2*Math.PI,true,"#ee5500");
 }
 //Function to generate polygons.
 function poly() {
@@ -73,6 +73,11 @@ function a_text(text,newx,newy,angle,font,fillcolour) {
     c.fillText(text, 0, 0); //Write the text, x and y set to 0 for translation purposes.
     c.restore(); //Restore saved position on canvas.
 }
+
+var grd=c.createRadialGradient(canvas.width/2,canvas.height/2,canvas.width,canvas.height,60,100);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"white");
+
 $(document).ready(function() {
     var sliderResult = [];
     var index = 0;
