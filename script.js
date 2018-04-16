@@ -9,7 +9,7 @@ canvas.style.height = "900px";
 c = canvas.getContext('2d');
 c.scale(2,2);
 draw_gauge();
-draw_gauge_dial(2.25);
+//draw_gauge_dial(2.25);
 
 //Function to draw the gauge 
 function draw_gauge() {
@@ -117,21 +117,21 @@ function radar() {
     r.lineTo(300,150);
 }
 
-// $(document).ready(function() {
-//     var sliderResult = [];
-//     var index = 0;
-//     //jsonRequest();
-//     $("input[type=range]").on("change", function() {
-//         var finalResult = 1.55;
-//         $("input[type=range]").each(function(index) {
-//             sliderResult[index] = $(this).val();
-//             finalResult += parseInt(sliderResult[index]);
-//             //circle(sliderResult[0]*10,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
-//             //console.log(sliderResult[0]);
-//             //finalResult += parseInt(sliderResult[index]);
-//         });
-//         finalResult = finalResult;
-//         draw_gauge_dial(finalResult/18);
-//     });
-//     draw_gauge_dial(1.55);
-// });
+$(document).ready(function() {
+    var sliderResult = [];
+    var index = 0;
+    //jsonRequest();
+    $("input[type=range]").on("change", function() {
+        var finalResult = 0;
+        $("input[type=range]").each(function(index) {
+            sliderResult[index] = $(this).val();
+            finalResult += parseInt(sliderResult[index]);
+        });
+        finalResult = finalResult;
+        var finalPercent = ((finalResult/50)*100);
+        draw_gauge_dial(((finalResult/50)*2.4)+1.95);
+        $('.resultPercent').html(finalPercent);
+    });
+    $('.resultPercent').html(50);
+    draw_gauge_dial(3.15);
+});
