@@ -1,5 +1,7 @@
 //Create Canvas
 var canvas = document.getElementById("results_canvas");
+//Setting double height and width as well as real height and width
+//then scaling by two to prevent blurry edges on retina screen
 canvas.width = 2400;
 canvas.height = 1800;
 canvas.style.width = "1200px";
@@ -7,17 +9,27 @@ canvas.style.height = "900px";
 c = canvas.getContext('2d');
 c.scale(2,2);
 draw_gauge();
+draw_gauge_dial(2.25);
 
 //Function to draw the gauge 
 function draw_gauge() {
+    //circle(canvas.width/4,250,200,0,2*Math.PI,true,"transparent",true,"#fff");
+    rect(canvas.width/4,250,10,200,"#fff",1.95,true,-5,0);//Notch 1
+    rect(canvas.width/4,250,10,200,"#fff",2.25,true,-5,0);//Notch 2
+    rect(canvas.width/4,250,10,200,"#fff",2.55,true,-5,0);//Notch 3
+    rect(canvas.width/4,250,10,200,"#fff",2.85,true,-5,0);//Notch 4
+    rect(canvas.width/4,250,10,200,"#fff",3.15,true,-5,0);//Notch 5
+    rect(canvas.width/4,250,10,200,"#fff",3.45,true,-5,0);//Notch 6
+    rect(canvas.width/4,250,10,200,"#fff",3.75,true,-5,0);//Notch 7
+    rect(canvas.width/4,250,10,200,"#fff",4.05,true,-5,0);//Notch 8
+    rect(canvas.width/4,250,10,200,"#fff",4.35,true,-5,0);//Notch 9
 
-    rect(canvas.width/4-75,50,10,50,"#fff",0.4);
-    rect(canvas.width/4-50,50,10,50,"#fff",0.4);
-    rect(canvas.width/4-25,50,10,50,"#fff",0.4);
-    rect(canvas.width/4,50,10,50,"#fff",1.6);
-    rect(canvas.width/4+25,50,10,50,"#fff",0.4);
-    rect(canvas.width/4+50,50,10,50,"#fff",0.4);
-    rect(canvas.width/4+75,50,10,50,"#fff",0.4);
+    //rect(canvas.width/4,250,10,200,"#fff",8.25,true,-5,0);//Notch 1
+    //rect(canvas.width/4,250,10,200,"#fff",8.55,true,-5,0);//Notch 2
+    //rect(canvas.width/4,250,10,200,"#fff",8.85,true,-5,0);//Notch 3
+    //rect(canvas.width/4,250,10,200,"#fff",9.15,true,-5,0);//Notch 4
+    circle(canvas.width/4,250,150,0,2*Math.PI,true,"#333");
+    
 
     //Examples
     //rect(10,10,50,50,"#ffffff");
@@ -41,7 +53,9 @@ function draw_gauge() {
     ////////////////////////OLD Gauge End////////////////////////////////
 }
 function draw_gauge_dial(gaugeposition) {
-    // rect(canvas.width/2,canvas.height/2-30,20,-150,"#fff",gaugeposition,true,-10,0);
+    rect(canvas.width/4,250,6,180,"#f00",gaugeposition,true,-3,0);
+    circle(canvas.width/4,250,25,0,2*Math.PI,true,"#000");
+    circle(canvas.width/4,250,20,0,2*Math.PI,true,"#fff");
 }
 //Function to generate polygons.
 function poly() {
@@ -58,7 +72,7 @@ function rect(x,y,width,height,fillcolour,angle,rotateoffset,urx,ury) {
     c.beginPath();
     c.save(); //Save current canvas position/
     c.translate(x, y); //Translate to enable easy rotation - these x and y positions are still where you want the rectangle to be.
-    c.rotate(angle-Math.PI/2); //Rotates the rectangle by the set angle
+    c.rotate(angle); //Rotates the rectangle by the set angle
     c.fillStyle = fillcolour; //Colour of rectangle.
     c.rect(rx,ry,width,height); //Draw rectangle choosing x and y position and width and height.
     c.fill(); //Fill rectangle.
@@ -103,21 +117,21 @@ function radar() {
     r.lineTo(300,150);
 }
 
-$(document).ready(function() {
-    var sliderResult = [];
-    var index = 0;
-    //jsonRequest();
-    $("input[type=range]").on("change", function() {
-        var finalResult = 1.55;
-        $("input[type=range]").each(function(index) {
-            sliderResult[index] = $(this).val();
-            finalResult += parseInt(sliderResult[index]);
-            //circle(sliderResult[0]*10,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
-            //console.log(sliderResult[0]);
-            //finalResult += parseInt(sliderResult[index]);
-        });
-        finalResult = finalResult;
-        draw_gauge_dial(finalResult/18);
-    });
-    draw_gauge_dial(1.55);
-});
+// $(document).ready(function() {
+//     var sliderResult = [];
+//     var index = 0;
+//     //jsonRequest();
+//     $("input[type=range]").on("change", function() {
+//         var finalResult = 1.55;
+//         $("input[type=range]").each(function(index) {
+//             sliderResult[index] = $(this).val();
+//             finalResult += parseInt(sliderResult[index]);
+//             //circle(sliderResult[0]*10,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
+//             //console.log(sliderResult[0]);
+//             //finalResult += parseInt(sliderResult[index]);
+//         });
+//         finalResult = finalResult;
+//         draw_gauge_dial(finalResult/18);
+//     });
+//     draw_gauge_dial(1.55);
+// });
