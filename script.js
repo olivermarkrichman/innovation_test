@@ -85,6 +85,7 @@ function radar() {
 $(document).ready(function() {
     var sliderResult = [];
     var index = 0;
+    draw_gauge(0);
     //jsonRequest();
     $("input[type=range]").on("change", function() {
         $("input[type=range]").each(function(index) {

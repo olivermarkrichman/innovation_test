@@ -48,7 +48,6 @@
         var canvas = document.getElementById('gauge_canvas'),
         c = canvas.getContext('2d');
         //Draw Gauge function
-        draw_gauge();
     </script>
 </body>
 </html>
