@@ -53,6 +53,11 @@ function draw_gauge() {
     ////////////////////////OLD Gauge End////////////////////////////////
 }
 function draw_gauge_dial(gaugeposition) {
+    //Clear the Canvas to redraw the Gauge
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    //Call the Gauge notchs on each redraw
+    draw_gauge();
+    //Reposition needle on Gauge
     rect(canvas.width/4,250,6,180,"#f00",gaugeposition,true,-3,0);
     circle(canvas.width/4,250,25,0,2*Math.PI,true,"#000");
     circle(canvas.width/4,250,20,0,2*Math.PI,true,"#fff");
