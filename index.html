@@ -10,44 +10,48 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <h1>Innovation Test</h1>
-    <ul class="questions">
-        <li>
-            <h2>Question 1</h2>
-            <p>This is an example question?</p>
-            <input type="range" value="5" min="0" max="10" />
-        </li>
-        <li>
-            <h2>Question 2</h2>
-            <p>This is an example question?</p>
-            <input type="range" value="5" min="0" max="10" />
-        </li>
-        <li>
-            <h2>Question 3</h2>
-            <p>This is an example question?</p>
-            <input type="range" value="5" min="0" max="10" />
-        </li>
-        <li>
-            <h2>Question 4</h2>
-            <p>This is an example question?</p>
-            <input type="range" value="5" min="0" max="10" />
-        </li>
-        <li>
-            <h2>Question 5</h2>
-            <p>This is an example question?</p>
-            <input type="range" value="5" min="0" max="10" />
-        </li>
-    </ul>
+    <div class="questions">
+        <h1>Innovation Test</h1>
+        <ul>
+            <li>
+                <h2>Question 1</h2>
+                <p>This is an example question?</p>
+                <input type="range" value="5" min="0" max="10" />
+            </li>
+            <li>
+                <h2>Question 2</h2>
+                <p>This is an example question?</p>
+                <input type="range" value="5" min="0" max="10" />
+            </li>
+            <li>
+                <h2>Question 3</h2>
+                <p>This is an example question?</p>
+                <input type="range" value="5" min="0" max="10" />
+            </li>
+            <li>
+                <h2>Question 4</h2>
+                <p>This is an example question?</p>
+                <input type="range" value="5" min="0" max="10" />
+            </li>
+            <li>
+                <h2>Question 5</h2>
+                <p>This is an example question?</p>
+                <input type="range" value="5" min="0" max="10" />
+            </li>
+        </ul>
+    </div>
 
-    <p class="questionvalues"></p>
-    <!-- Create HTML Canvas Element -->
-    <canvas id="gauge_canvas" width="500px" height="500px" style="background-color:#ee5500"></canvas>
-    <canvas id="radar_canvas" width="400px" height="400px"></canvas>
+    <div class="results">
+        <h3>33%</h3>
+        <h1>INNOVATIVE</h1>
+        <canvas id="gauge_canvas"></canvas>
+        <canvas id="radar_canvas"></canvas>
+        <canvas id="bar_canvas"></canvas>
+    </div>
     <script>
         //Create canvas
-        var canvas = document.getElementById('gauge_canvas'),
-        c = canvas.getContext('2d');
-        //Draw Gauge function
+        var gauge_canvas = document.getElementById('gauge_canvas'),
+        gc = gauge_canvas.getContext('2d');
     </script>
 </body>
 </html>
