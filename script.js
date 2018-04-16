@@ -90,7 +90,7 @@ $(document).ready(function() {
     $("input[type=range]").on("change", function() {
         $("input[type=range]").each(function(index) {
             sliderResult[index] = $(this).val();
-            draw_gauge(sliderResult[0]*10);
+            draw_gauge(sliderResult[0]/10);
             //circle(sliderResult[0]*10,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
             //console.log(sliderResult[0]);
         });
