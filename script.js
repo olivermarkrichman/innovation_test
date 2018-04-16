@@ -85,14 +85,18 @@ function radar() {
 $(document).ready(function() {
     var sliderResult = [];
     var index = 0;
-    draw_gauge(0);
     //jsonRequest();
     $("input[type=range]").on("change", function() {
+        var finalResult = 1.55;
         $("input[type=range]").each(function(index) {
             sliderResult[index] = $(this).val();
-            draw_gauge(sliderResult[0]/10);
+            finalResult += parseInt(sliderResult[index]);
             //circle(sliderResult[0]*10,200,40,0,2*Math.PI,true,"#ff0000",true,"#00ff00");
             //console.log(sliderResult[0]);
+            //finalResult += parseInt(sliderResult[index]);
         });
+        finalResult = finalResult;
+        draw_gauge(finalResult/18);
     });
+    draw_gauge(1.55);
 });
