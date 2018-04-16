@@ -1,5 +1,23 @@
+//Create Canvas
+var canvas = document.getElementById("results_canvas");
+canvas.width = 2400;
+canvas.height = 1800;
+canvas.style.width = "1200px";
+canvas.style.height = "900px";
+c = canvas.getContext('2d');
+c.scale(2,2);
+draw_gauge();
+
 //Function to draw the gauge 
-function draw_gauge(gaugeposition) {
+function draw_gauge() {
+
+    rect(canvas.width/4-75,50,10,50,"#fff",0.4);
+    rect(canvas.width/4-50,50,10,50,"#fff",0.4);
+    rect(canvas.width/4-25,50,10,50,"#fff",0.4);
+    rect(canvas.width/4,50,10,50,"#fff",1.6);
+    rect(canvas.width/4+25,50,10,50,"#fff",0.4);
+    rect(canvas.width/4+50,50,10,50,"#fff",0.4);
+    rect(canvas.width/4+75,50,10,50,"#fff",0.4);
 
     //Examples
     //rect(10,10,50,50,"#ffffff");
@@ -8,19 +26,22 @@ function draw_gauge(gaugeposition) {
     //a_text("oliver",300,300,0,"18px Arial","#0000ff");
     //circle(250,150,120,0,2*Math.PI,true,"#fff000");
 
-    //Gauge Start
-    circle(canvas.width/2,canvas.height/2,240,0,2*Math.PI,true,"#aaa");
-    circle(canvas.width/2,canvas.height/2,210,0,2*Math.PI,true,"#777");    
-    text("BAD",70,canvas.height/2,"32px Arial","left","#f00");
-    text("GOOD",430,canvas.height/2,"32px Arial","right","#fff");
-    rect(80,canvas.height/2-50,40,10,"#f00");//Left notch
-    rect(150,canvas.height/2-110,40,10,"#f55",-0.8);//Angled left notch
-    rect(canvas.width/2,canvas.height/2-190,10,40,"#fbb"); //Middle notch
-    rect(350,canvas.height/2-110,40,10,"#fdd",0.8);//Angled right notch
-    rect(380,canvas.height/2-50,40,10,"#fff");//Right notch
-    rect(canvas.width/2,canvas.height/2-30,20,-150,"#fff",gaugeposition,true,-10,0);//Dial - change angle to set the dial wherever
-    circle(canvas.width/2,canvas.height/2-30,30,0,2*Math.PI,true,"#ee5500");
-    //Gauge End
+    ////////////////////////OLD Gauge Start////////////////////////////
+    // circle(canvas.width/2,canvas.height/2,240,0,2*Math.PI,true,"#aaa");
+    // circle(canvas.width/2,canvas.height/2,210,0,2*Math.PI,true,"#777");    
+    // text("BAD",70,canvas.height/2,"32px Arial","left","#f00");
+    // text("GOOD",430,canvas.height/2,"32px Arial","right","#fff");
+    // rect(80,canvas.height/2-50,40,10,"#f00");//Left notch
+    // rect(150,canvas.height/2-110,40,10,"#f55",-0.8);//Angled left notch
+    // rect(canvas.width/2,canvas.height/2-190,10,40,"#fbb"); //Middle notch
+    // rect(350,canvas.height/2-110,40,10,"#fdd",0.8);//Angled right notch
+    // rect(380,canvas.height/2-50,40,10,"#fff");//Right notch
+    // rect(canvas.width/2,canvas.height/2-30,20,-150,"#fff",gaugeposition,true,-10,0);//Dial - change angle to set the dial wherever
+    // circle(canvas.width/2,canvas.height/2-30,30,0,2*Math.PI,true,"#ee5500");
+    ////////////////////////OLD Gauge End////////////////////////////////
+}
+function draw_gauge_dial(gaugeposition) {
+    // rect(canvas.width/2,canvas.height/2-30,20,-150,"#fff",gaugeposition,true,-10,0);
 }
 //Function to generate polygons.
 function poly() {
@@ -96,7 +117,7 @@ $(document).ready(function() {
             //finalResult += parseInt(sliderResult[index]);
         });
         finalResult = finalResult;
-        draw_gauge(finalResult/18);
+        draw_gauge_dial(finalResult/18);
     });
-    draw_gauge(1.55);
+    draw_gauge_dial(1.55);
 });

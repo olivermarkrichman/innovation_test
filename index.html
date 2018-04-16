@@ -7,7 +7,6 @@
     <title>Innovation Test</title>
     <link rel="stylesheet" href="style/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="script.js"></script>
 </head>
 <body>
     <div class="questions">
@@ -42,16 +41,10 @@
     </div>
 
     <div class="results">
-        <h3>33%</h3>
+        <h2>33%</h2>
         <h1>INNOVATIVE</h1>
-        <canvas id="gauge_canvas"></canvas>
-        <canvas id="radar_canvas"></canvas>
-        <canvas id="bar_canvas"></canvas>
+        <canvas id="results_canvas" width="1200px" height="900px"></canvas>
     </div>
-    <script>
-        //Create canvas
-        var gauge_canvas = document.getElementById('gauge_canvas'),
-        gc = gauge_canvas.getContext('2d');
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
