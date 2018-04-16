@@ -1,5 +1,5 @@
 //Function to draw the gauge 
-function draw_gauge() {
+function draw_gauge(gaugeposition) {
 
     //Examples
     //rect(10,10,50,50,"#ffffff");
@@ -7,6 +7,8 @@ function draw_gauge() {
     //text("tom",200,200,"18px Arial","center","#00ff00");
     //a_text("oliver",300,300,0,"18px Arial","#0000ff");
     //circle(250,150,120,0,2*Math.PI,true,"#fff000");
+
+    //Gauge Start
     circle(canvas.width/2,canvas.height/2,240,0,2*Math.PI,true,"#aaa");
     circle(canvas.width/2,canvas.height/2,210,0,2*Math.PI,true,"#777");    
     text("BAD",70,canvas.height/2,"32px Arial","left","#f00");
@@ -16,8 +18,9 @@ function draw_gauge() {
     rect(canvas.width/2,canvas.height/2-190,10,40,"#fbb"); //Middle notch
     rect(350,canvas.height/2-110,40,10,"#fdd",0.8);//Angled right notch
     rect(380,canvas.height/2-50,40,10,"#fff");//Right notch
-    rect(canvas.width/2,canvas.height/2-30,20,-150,"#fff",0.8,true,-10,0);//Dial - change angle to set the dial wherever
+    rect(canvas.width/2,canvas.height/2-30,20,-150,"#fff",gaugeposition,true,-10,0);//Dial - change angle to set the dial wherever
     circle(canvas.width/2,canvas.height/2-30,30,0,2*Math.PI,true,"#ee5500");
+    //Gauge End
 }
 //Function to generate polygons.
 function poly() {
