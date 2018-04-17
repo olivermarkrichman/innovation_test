@@ -42,9 +42,15 @@ function draw_gauge_dial(gaugeposition) {
     circle(canvas.width/4,250,25,0,2*Math.PI,true,"#000");
     circle(canvas.width/4,250,20,0,2*Math.PI,true,"#fff");
 }
-//Function to generate polygons.
-function poly() {
-
+//Function to generate radar graph
+function radarGraph () {
+    //How many questions are there?
+    var rangeLength = $("input[type=range]").length;
+    //Draw this many lines and create this many points for the graph
+    $("input[type=range]").each(function(index) {
+        rect(canvas.width/8,500,125,4,"#777",1.25*index-0.915,true,-125,-2);
+    });
+    //Connect the points and create the shape
 }
 //Function to generate rectangles.
 function rect(x,y,width,height,fillcolour,angle,rotateoffset,urx,ury) {
@@ -96,11 +102,6 @@ function a_text(text,newx,newy,angle,font,fillcolour) {
     c.fillText(text, 0, 0); //Write the text, x and y set to 0 for translation purposes.
     c.restore(); //Restore saved position on canvas.
 }
-function radar() {
-    //Draw radar
-    r.moveTo(0,0);
-    r.lineTo(300,150);
-}
 
 $(document).ready(function() {
     var sliderResult = [];
@@ -120,4 +121,5 @@ $(document).ready(function() {
     });
     $('.resultPercent').html(50);
     draw_gauge_dial(3.15);
+    radarGraph();
 });
