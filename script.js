@@ -49,6 +49,7 @@ function radarGraph () {
     //Draw this many lines and create this many points for the graph
     $("input[type=range]").each(function(index) {
         rect(canvas.width/8,500,125,4,"#777",1.25*index-0.915,true,-125,-2);
+        text("Q"+index,100*index,505,"bold 20px Muli");
     });
     //Connect the points and create the shape
 }
