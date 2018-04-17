@@ -48,14 +48,18 @@ function draw_gauge_dial(gaugeposition) {
     circle(canvas.width/4,200,20,0,2*Math.PI,true,"#fff");
 }
 //Function to generate radar graph
-function radarGraph () {
+function radarGraph (array) {
     //How many questions are there?
     var rangeLength = $("input[type=range]").length;
     //Draw this many lines and create this many points for the graph
     $("input[type=range]").each(function(index) {
-        rect(canvas.width/8,500,125,4,"#777",1.25*index-0.915,true,-125,-2);
-        text("Q"+index,100*index,505,"bold 20px Muli");
+        rect(canvas.width/8,500,132,4,"#777",1.25*index-0.945,true,-132,-2);
     });
+    text("Q1",canvas.width/8-2,350,"bold 18px Muli","center");
+    text("Q2",canvas.width/8+150,460,"bold 18px Muli","center");
+    text("Q3",canvas.width/8+100,625,"bold 18px Muli","center");
+    text("Q4",canvas.width/8-100,625,"bold 18px Muli","center");
+    text("Q5",canvas.width/8-150,460,"bold 18px Muli","center");
     //Connect the points and create the shape
 }
 
@@ -118,13 +122,14 @@ $(document).ready(function() {
             sliderResult[index] = $(this).val();
             finalResult += parseInt(sliderResult[index]);
         });
+        radarGraph(sliderResult[0],sliderResult[1],sliderResult[2],sliderResult[3],sliderResult[4])
         finalResult = finalResult;
         var finalPercent = ((finalResult/50)*100);
         finalPercent = parseFloat(Math.round(finalPercent * 100) / 100).toFixed(0);
         draw_gauge_dial(((finalResult/50)*2.4)+1.95);
         $('.resultPercent').html(finalPercent);
     });
-    $('.resultPercent').html(50);
+    $('.resultPercent').html("50");
     draw_gauge_dial(3.15);
-    radarGraph();
+    radarGraph("5,5,5,5,5");
 });
