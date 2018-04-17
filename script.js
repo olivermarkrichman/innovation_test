@@ -24,6 +24,11 @@ function draw_gauge() {
     rect(canvas.width/4,200,10,200,"#fff",4.05,true,-5,0);//Notch 8
     rect(canvas.width/4,200,10,200,"#fff",4.35,true,-5,0);//Notch 9
     circle(canvas.width/4,200,150,0,2*Math.PI,true,"#333"); //Cover up to create dial
+        var img = new Image();
+        img.onload = function() {
+        c.drawImage(img,canvas.width/4-20,80,40,50);
+        }
+        img.src = "style/lightbulb.svg";
 
     //Examples
     //rect(10,10,50,50,"#ffffff");
@@ -53,6 +58,7 @@ function radarGraph () {
     });
     //Connect the points and create the shape
 }
+
 //Function to generate rectangles.
 function rect(x,y,width,height,fillcolour,angle,rotateoffset,urx,ury) {
     rx = 0;
@@ -103,11 +109,9 @@ function a_text(text,newx,newy,angle,font,fillcolour) {
     c.fillText(text, 0, 0); //Write the text, x and y set to 0 for translation purposes.
     c.restore(); //Restore saved position on canvas.
 }
-
 $(document).ready(function() {
     var sliderResult = [];
     var index = 0;
-    //jsonRequest();
     $("input[type=range]").on("change", function() {
         var finalResult = 0;
         $("input[type=range]").each(function(index) {
