@@ -134,6 +134,7 @@ $(document).ready(function() {
         });
         finalResult = finalResult;
         var finalPercent = ((finalResult/50)*100);
+        finalPercent = parseFloat(Math.round(finalPercent * 100) / 100).toFixed(0);
         draw_gauge_dial(((finalResult/50)*2.4)+1.95);
         $('.resultPercent').html(finalPercent);
     });
