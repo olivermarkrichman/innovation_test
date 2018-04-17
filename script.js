@@ -14,16 +14,16 @@ draw_gauge();
 //Function to draw the gauge 
 function draw_gauge() {
     //circle(canvas.width/4,250,200,0,2*Math.PI,true,"transparent",true,"#fff");
-    rect(canvas.width/4,250,10,200,"#fff",1.95,true,-5,0);//Notch 1
-    rect(canvas.width/4,250,10,200,"#fff",2.25,true,-5,0);//Notch 2
-    rect(canvas.width/4,250,10,200,"#fff",2.55,true,-5,0);//Notch 3
-    rect(canvas.width/4,250,10,200,"#fff",2.85,true,-5,0);//Notch 4
-    rect(canvas.width/4,250,10,200,"#fff",3.15,true,-5,0);//Notch 5
-    rect(canvas.width/4,250,10,200,"#fff",3.45,true,-5,0);//Notch 6
-    rect(canvas.width/4,250,10,200,"#fff",3.75,true,-5,0);//Notch 7
-    rect(canvas.width/4,250,10,200,"#fff",4.05,true,-5,0);//Notch 8
-    rect(canvas.width/4,250,10,200,"#fff",4.35,true,-5,0);//Notch 9
-    circle(canvas.width/4,250,150,0,2*Math.PI,true,"#333"); //Cover up to create dial
+    rect(canvas.width/4,200,10,200,"#fff",1.95,true,-5,0);//Notch 1
+    rect(canvas.width/4,200,10,200,"#fff",2.25,true,-5,0);//Notch 2
+    rect(canvas.width/4,200,10,200,"#fff",2.55,true,-5,0);//Notch 3
+    rect(canvas.width/4,200,10,200,"#fff",2.85,true,-5,0);//Notch 4
+    rect(canvas.width/4,200,10,200,"#fff",3.15,true,-5,0);//Notch 5
+    rect(canvas.width/4,200,10,200,"#fff",3.45,true,-5,0);//Notch 6
+    rect(canvas.width/4,200,10,200,"#fff",3.75,true,-5,0);//Notch 7
+    rect(canvas.width/4,200,10,200,"#fff",4.05,true,-5,0);//Notch 8
+    rect(canvas.width/4,200,10,200,"#fff",4.35,true,-5,0);//Notch 9
+    circle(canvas.width/4,200,150,0,2*Math.PI,true,"#333"); //Cover up to create dial
 
     //Examples
     //rect(10,10,50,50,"#ffffff");
@@ -38,9 +38,9 @@ function draw_gauge_dial(gaugeposition) {
     //Call the Gauge notchs on each redraw
     draw_gauge();
     //Reposition needle on Gauge
-    rect(canvas.width/4,250,6,180,"#f00",gaugeposition,true,-3,0);
-    circle(canvas.width/4,250,25,0,2*Math.PI,true,"#000");
-    circle(canvas.width/4,250,20,0,2*Math.PI,true,"#fff");
+    rect(canvas.width/4,200,6,180,"#f00",gaugeposition,true,-3,0);
+    circle(canvas.width/4,200,25,0,2*Math.PI,true,"#000");
+    circle(canvas.width/4,200,20,0,2*Math.PI,true,"#fff");
 }
 //Function to generate polygons.
 function poly() {
@@ -120,4 +120,5 @@ $(document).ready(function() {
     });
     $('.resultPercent').html(50);
     draw_gauge_dial(3.15);
+    //text("100",canvas.width/4,255,"bold 20px Muli","center","#f00");
 });
