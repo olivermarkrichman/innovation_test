@@ -121,6 +121,5 @@ $(document).ready(function() {
     });
     $('.resultPercent').html(50);
     draw_gauge_dial(3.15);
-    //text("100",canvas.width/4,255,"bold 20px Muli","center","#f00");
     radarGraph();
 });
