@@ -23,13 +23,7 @@ function draw_gauge() {
     rect(canvas.width/4,250,10,200,"#fff",3.75,true,-5,0);//Notch 7
     rect(canvas.width/4,250,10,200,"#fff",4.05,true,-5,0);//Notch 8
     rect(canvas.width/4,250,10,200,"#fff",4.35,true,-5,0);//Notch 9
-
-    //rect(canvas.width/4,250,10,200,"#fff",8.25,true,-5,0);//Notch 1
-    //rect(canvas.width/4,250,10,200,"#fff",8.55,true,-5,0);//Notch 2
-    //rect(canvas.width/4,250,10,200,"#fff",8.85,true,-5,0);//Notch 3
-    //rect(canvas.width/4,250,10,200,"#fff",9.15,true,-5,0);//Notch 4
-    circle(canvas.width/4,250,150,0,2*Math.PI,true,"#333");
-    
+    circle(canvas.width/4,250,150,0,2*Math.PI,true,"#333"); //Cover up to create dial
 
     //Examples
     //rect(10,10,50,50,"#ffffff");
@@ -37,20 +31,6 @@ function draw_gauge() {
     //text("tom",200,200,"18px Arial","center","#00ff00");
     //a_text("oliver",300,300,0,"18px Arial","#0000ff");
     //circle(250,150,120,0,2*Math.PI,true,"#fff000");
-
-    ////////////////////////OLD Gauge Start////////////////////////////
-    // circle(canvas.width/2,canvas.height/2,240,0,2*Math.PI,true,"#aaa");
-    // circle(canvas.width/2,canvas.height/2,210,0,2*Math.PI,true,"#777");    
-    // text("BAD",70,canvas.height/2,"32px Arial","left","#f00");
-    // text("GOOD",430,canvas.height/2,"32px Arial","right","#fff");
-    // rect(80,canvas.height/2-50,40,10,"#f00");//Left notch
-    // rect(150,canvas.height/2-110,40,10,"#f55",-0.8);//Angled left notch
-    // rect(canvas.width/2,canvas.height/2-190,10,40,"#fbb"); //Middle notch
-    // rect(350,canvas.height/2-110,40,10,"#fdd",0.8);//Angled right notch
-    // rect(380,canvas.height/2-50,40,10,"#fff");//Right notch
-    // rect(canvas.width/2,canvas.height/2-30,20,-150,"#fff",gaugeposition,true,-10,0);//Dial - change angle to set the dial wherever
-    // circle(canvas.width/2,canvas.height/2-30,30,0,2*Math.PI,true,"#ee5500");
-    ////////////////////////OLD Gauge End////////////////////////////////
 }
 function draw_gauge_dial(gaugeposition) {
     //Clear the Canvas to redraw the Gauge
