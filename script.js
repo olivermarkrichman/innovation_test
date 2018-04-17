@@ -2,9 +2,9 @@
 var canvas = document.getElementById("results_canvas");
 //Setting double height and width as well as real height and width
 //then scaling by two to prevent blurry edges on retina screen
-canvas.width = 2400;
+canvas.width = 1800;
 canvas.height = 1800;
-canvas.style.width = "1200px";
+canvas.style.width = "900px";
 canvas.style.height = "900px";
 c = canvas.getContext('2d');
 c.scale(2,2);
