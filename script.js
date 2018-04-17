@@ -39,7 +39,7 @@ function draw_gauge_dial(gaugeposition) {
     //Call the Gauge notchs on each redraw
     draw_gauge();
     //Reposition needle on Gauge
-    rect(canvas.width/4,200,6,180,"#f00",gaugeposition,true,-3,0);
+    rect(canvas.width/4,200,6,180,"rgba(255,0,0,0.85)",gaugeposition,true,-3,0);
     circle(canvas.width/4,200,25,0,2*Math.PI,true,"#000");
     circle(canvas.width/4,200,20,0,2*Math.PI,true,"#fff");
 }
