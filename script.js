@@ -49,6 +49,7 @@ function radarGraph () {
     //Draw this many lines and create this many points for the graph
     $("input[type=range]").each(function(index) {
         rect(canvas.width/8,500,125,4,"#777",1.25*index-0.915,true,-125,-2);
+        text("Q"+index,100*index,505,"bold 20px Muli");
     });
     //Connect the points and create the shape
 }
@@ -121,6 +122,5 @@ $(document).ready(function() {
     });
     $('.resultPercent').html(50);
     draw_gauge_dial(3.15);
-    //text("100",canvas.width/4,255,"bold 20px Muli","center","#f00");
     radarGraph();
 });
