@@ -9,7 +9,7 @@ canvas.style.height = "900px";
 c = canvas.getContext('2d');
 c.scale(2,2);
 draw_gauge();
-var array = [];
+var array = [5,5,5,5,5];
 //draw_gauge_dial(2.25);
 
 //Function to draw the gauge 
@@ -46,19 +46,25 @@ function draw_gauge_dial(gaugeposition) {
 }
 //Function to generate radar graph
 function radarGraph (array) {
-    //How many questions are there?
-    var rangeLength = $("input[type=range]").length;
     //Draw this many lines and create this many points for the graph
     $("input[type=range]").each(function(index) {
         rect(canvas.width/8,420,132,4,"#777",1.25*index-0.945,true,-132,-2);
     });
+    //Draw the questions text
     text("Q1",canvas.width/8-2,270,"bold 18px Muli","center");
     text("Q2",canvas.width/8+150,380,"bold 18px Muli","center");
     text("Q3",canvas.width/8+100,545,"bold 18px Muli","center");
     text("Q4",canvas.width/8-100,545,"bold 18px Muli","center");
     text("Q5",canvas.width/8-150,380,"bold 18px Muli","center");
     //Connect the points and create the shape
-    alert(array);
+    for (index = 0; index < array.length; ++index) {
+        //rect(canvas.width/8,420,4,4,"#f00",1.25*index-1.57,true,array[index]*13,-2);
+        circle(canvas.width/8+(array[0]*0)-1, 420-(array[0]*13), 8, 0, 2*Math.PI, "#FFF");
+        circle(canvas.width/8+(array[1]*13)-1, 420-(array[1]*5)/1.0975, 8, 0, 2*Math.PI, "#FFF");
+        circle(canvas.width/8+(array[2]*8)-1, 420+(array[2]*11)/1.0975, 8, 0, 2*Math.PI, "#FFF");
+        circle(canvas.width/8-(array[3]*8)+1, 420+(array[3]*11), 8, 0, 2*Math.PI, "#FFF");
+        circle(canvas.width/8-(array[4]*12)-1, 420-(array[4]*4)/1.0975, 8, 0, 2*Math.PI, "#FFF");
+    }
 }
 
 //Function to generate rectangles.
@@ -131,5 +137,5 @@ $(document).ready(function() {
     $('.resultPercent').html("50");
     draw_gauge_dial(3.15);
     //Call initial default radar graph
-    radarGraph("5,5,5,5,5");
+    radarGraph(array);
 });
