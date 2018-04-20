@@ -47,26 +47,6 @@ function draw_gauge_dial(gaugeposition) {
     circle(canvas.width/4,200,20,0,2*Math.PI,true,"#fff");
 }
 
-//Function to generate the bar chart
-function draw_bar_chart(maxspace) {
-    // rect(canvas.width/3.5,270,300,300,"#444",false);
-
-    // rect(canvas.width/3.5,285,array[0]*30,25,"#f00");
-    // text("Q1",canvas.width/3.5,270,"bold 18px Muli","center");
-
-    // rect(canvas.width/3.5,355,array[1]*30,25,"#f00");
-    // text("Q2",canvas.width/3.5,340,"bold 18px Muli","center");
-
-    // rect(canvas.width/3.5,415,array[2]*30,25,"#f00");
-    // text("Q3",canvas.width/3.5,400,"bold 18px Muli","center");
-
-    // rect(canvas.width/3.5,475,array[3]*30,25,"#f00");
-    // text("Q4",canvas.width/3.5,460,"bold 18px Muli","center");
-
-    // rect(canvas.width/3.5,535,array[4]*30,25,"#f00");
-    // text("Q5",canvas.width/3.5,520,"bold 18px Muli","center");
-}
-
 function draw_grey_bars() {
     var qheight = 285;
     var qnum = 1;
@@ -81,8 +61,6 @@ function draw_grey_bars() {
         qnum++
     });
 }
-
-
 
 function draw_bars(array) {
     draw_grey_bars();
@@ -198,6 +176,5 @@ $(document).ready(function() {
     //Call initial default radar graph
     radarGraph("5,5,5,5,5");
     //call bar chart
-    draw_grey_bars();
     draw_bars(array);
 });
