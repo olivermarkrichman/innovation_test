@@ -99,7 +99,6 @@ function radarGraph (array) {
     text("Q4",canvas.width/8-100,545,"bold 18px Muli","center");
     text("Q5",canvas.width/8-150,380,"bold 18px Muli","center");
     //Connect the points and create the shape
-<<<<<<< HEAD
     for (index = 0; index < array.length; ++index) {
         //rect(canvas.width/8,420,4,4,"#f00",1.25*index-1.57,true,array[index]*13,-2);
         circle(canvas.width/8+(array[0]*0)-1, 420-(array[0]*13), 8, 0, 2*Math.PI, "#FFF");
@@ -108,8 +107,6 @@ function radarGraph (array) {
         circle(canvas.width/8-(array[3]*8)+1, 420+(array[3]*11), 8, 0, 2*Math.PI, "#FFF");
         circle(canvas.width/8-(array[4]*12)-1, 420-(array[4]*4)/1.0975, 8, 0, 2*Math.PI, "#FFF");
     }
-=======
->>>>>>> f7723292903c44fa829ace699758690e3d562b3a
 }
 
 //Function to generate rectangles.
@@ -184,11 +181,7 @@ $(document).ready(function() {
     $('.resultPercent').html("50");
     draw_gauge_dial(3.15);
     //Call initial default radar graph
-<<<<<<< HEAD
     radarGraph(array);
-=======
-    radarGraph("5,5,5,5,5");
     //call bar chart
     draw_bars(array);
->>>>>>> f7723292903c44fa829ace699758690e3d562b3a
 });
