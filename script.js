@@ -9,7 +9,7 @@ canvas.style.height = "900px";
 c = canvas.getContext('2d');
 c.scale(2,2);
 draw_gauge();
-var array = [];
+var array = [5,5,5,5,5];
 //draw_gauge_dial(2.25);
 
 //Function to draw the gauge 
@@ -34,6 +34,8 @@ function draw_gauge() {
     //a_text("oliver",300,300,0,"18px Arial","#0000ff");
     //circle(250,150,120,0,2*Math.PI,true,"#fff000");
 }
+
+//Function to generate the gauge dial
 function draw_gauge_dial(gaugeposition) {
     //Clear the Canvas to redraw the Gauge
     c.clearRect(0, 0, canvas.width, canvas.height);
@@ -44,6 +46,68 @@ function draw_gauge_dial(gaugeposition) {
     circle(canvas.width/4,200,25,0,2*Math.PI,true,"#000");
     circle(canvas.width/4,200,20,0,2*Math.PI,true,"#fff");
 }
+
+//Function to generate the bar chart
+function draw_bar_chart(maxspace) {
+    // rect(canvas.width/3.5,270,300,300,"#444",false);
+
+    // rect(canvas.width/3.5,285,array[0]*30,25,"#f00");
+    // text("Q1",canvas.width/3.5,270,"bold 18px Muli","center");
+
+    // rect(canvas.width/3.5,355,array[1]*30,25,"#f00");
+    // text("Q2",canvas.width/3.5,340,"bold 18px Muli","center");
+
+    // rect(canvas.width/3.5,415,array[2]*30,25,"#f00");
+    // text("Q3",canvas.width/3.5,400,"bold 18px Muli","center");
+
+    // rect(canvas.width/3.5,475,array[3]*30,25,"#f00");
+    // text("Q4",canvas.width/3.5,460,"bold 18px Muli","center");
+
+    // rect(canvas.width/3.5,535,array[4]*30,25,"#f00");
+    // text("Q5",canvas.width/3.5,520,"bold 18px Muli","center");
+}
+
+function draw_grey_bars() {
+    var qheight = 285;
+    var qnum = 1;
+    $("input[type=range]").each(function(index) {
+        var spacing = 0;
+        do {
+            rect(canvas.width/3.5+spacing,qheight,25,25,"#777");
+            spacing += 30;
+        } while (spacing < 270);
+        text("Q"+qnum,canvas.width/3.5,qheight-10,"bold 18px Muli","center");
+        qheight += 60;
+        qnum++
+    });
+}
+
+
+
+function draw_bars(array) {
+    draw_grey_bars();
+    var qheight = 285;
+    var qnum = 1;
+    $("input[type=range]").each(function(index) {
+        var spacing = 0;
+        if (array[index] < 1) {
+            do {
+                rect(canvas.width/3.5+spacing,qheight,25,25,"#777");
+                spacing += 30;
+            } while (spacing < maxspacing);
+        } else {
+            maxspacing = array[index]*25;
+            do {
+                rect(canvas.width/3.5+spacing,qheight,25,25,"#f00");
+                spacing += 30;
+            } while (spacing < maxspacing);
+        }
+        text("Q"+qnum,canvas.width/3.5,qheight-10,"bold 18px Muli","center");
+        qheight += 60;
+        qnum++
+    });
+}
+
 //Function to generate radar graph
 function radarGraph (array) {
     //How many questions are there?
@@ -58,7 +122,6 @@ function radarGraph (array) {
     text("Q4",canvas.width/8-100,545,"bold 18px Muli","center");
     text("Q5",canvas.width/8-150,380,"bold 18px Muli","center");
     //Connect the points and create the shape
-    alert(array);
 }
 
 //Function to generate rectangles.
@@ -126,10 +189,15 @@ $(document).ready(function() {
         draw_gauge_dial(((finalResult/50)*2.4)+1.95);
         array = [sliderResult[0],sliderResult[1],sliderResult[2],sliderResult[3],sliderResult[4]];
         radarGraph(array);
+        draw_bars(array);
         $('.resultPercent').html(finalPercent);
     });
+    
     $('.resultPercent').html("50");
     draw_gauge_dial(3.15);
     //Call initial default radar graph
     radarGraph("5,5,5,5,5");
+    //call bar chart
+    draw_grey_bars();
+    draw_bars(array);
 });
