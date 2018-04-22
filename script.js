@@ -3,9 +3,9 @@ var canvas = document.getElementById("results_canvas");
 //Setting double height and width as well as real height and width
 //then scaling by two to prevent blurry edges on retina screen
 canvas.width = 1800;
-canvas.height = 1800;
+canvas.height = 1120;
 canvas.style.width = "900px";
-canvas.style.height = "900px";
+canvas.style.height = "560px";
 c = canvas.getContext('2d');
 c.scale(2,2);
 draw_gauge();
@@ -100,15 +100,24 @@ function radarGraph (array) {
     text("Q5",canvas.width/8-150,380,"bold 18px Muli","center");
     //Connect the points and create the shape
     for (index = 0; index < array.length; ++index) {
-        //rect(canvas.width/8,420,4,4,"#f00",1.25*index-1.57,true,array[index]*13,-2);
-        circle(canvas.width/8+(array[0]*0)-1, 420-(array[0]*13), 8, 0, 2*Math.PI, "#FFF");
-        circle(canvas.width/8+(array[1]*13)-1, 420-(array[1]*5)/1.0975, 8, 0, 2*Math.PI, "#FFF");
-        circle(canvas.width/8+(array[2]*8)-1, 420+(array[2]*11)/1.0975, 8, 0, 2*Math.PI, "#FFF");
-        circle(canvas.width/8-(array[3]*8)+1, 420+(array[3]*11), 8, 0, 2*Math.PI, "#FFF");
-        circle(canvas.width/8-(array[4]*12)-1, 420-(array[4]*4)/1.0975, 8, 0, 2*Math.PI, "#FFF");
+        c.beginPath();                                                                                  //Begin Path
+        c.strokeStyle = "#f00";                                                                         //Set Line Colour
+        c.lineWidth = 3;                                                                                //Set Line thickness
+        c.moveTo(canvas.width/8+(array[0]*0)-1,420-(array[0]*13));                                      //Position Initial Line point as the Dot 1 position
+        c.lineTo(canvas.width/8+(array[1]*13)-1, 420-(array[1]*5)/1.0975);                              //Position of line releative from Dot 1 to Dot 2 position
+        c.lineTo(canvas.width/8+(array[2]*8)-1, 420+(array[2]*11)/1.0975);                              //Position of line releative from Dot 2 to Dot 3 position
+        c.lineTo(canvas.width/8-(array[3]*7), 420+(array[3]*10));                                       //Position of line releative from Dot 3 to Dot 4 position
+        c.lineTo(canvas.width/8-(array[4]*12)-3, 420-(array[4]*4)/1.0975);                              //Position of line releative from Dot 4 to Dot 5 position
+        c.lineTo(canvas.width/8+(array[0]*0)-1,420-(array[0]*13));                                      //Position of line releative from Dot 5 to Dot 1 position
+        c.stroke();                                                                                     //Apply stroke to Shape
+        c.closePath();                                                                                  //Close Shape Path
+        circle(canvas.width/8+(array[0]*0)-1, 420-(array[0]*13), 8, 0, 2*Math.PI, "#FFF");              //Dot 1
+        circle(canvas.width/8+(array[1]*13)-1, 420-(array[1]*5)/1.0975, 8, 0, 2*Math.PI, "#FFF");       //Dot 2
+        circle(canvas.width/8+(array[2]*8)-1, 420+(array[2]*11)/1.0975, 8, 0, 2*Math.PI, "#FFF");       //Dot 3
+        circle(canvas.width/8-(array[3]*7), 420+(array[3]*10), 8, 0, 2*Math.PI, "#FFF");                //Dot 4
+        circle(canvas.width/8-(array[4]*12), 420-(array[4]*4)/1.0975, 8, 0, 2*Math.PI, "#FFF");         //Dot 5
     }
 }
-
 //Function to generate rectangles.
 function rect(x,y,width,height,fillcolour,angle,rotateoffset,urx,ury) {
     rx = 0;
