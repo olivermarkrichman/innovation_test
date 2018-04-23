@@ -53,11 +53,11 @@ function draw_grey_bars() {
     $("input[type=range]").each(function(index) {
         var spacing = 0;
         do {
-            rect(canvas.width/3.5+spacing,qheight,25,25,"#777");
-            spacing += 30;
+            circle(canvas.width/3.5+spacing,qheight,15,0,2*Math.PI,true,"#777");
+            spacing += 35;
         } while (spacing < 270);
-        text("Q"+qnum,canvas.width/3.5,qheight-10,"bold 18px Muli","center");
-        qheight += 60;
+        text("Q"+qnum,canvas.width/3.5,qheight-25,"bold 18px Muli","center","#fff");
+        qheight += 65;
         qnum++
     });
 }
@@ -70,18 +70,17 @@ function draw_bars(array) {
         var spacing = 0;
         if (array[index] < 1) {
             do {
-                rect(canvas.width/3.5+spacing,qheight,25,25,"#777");
-                spacing += 30;
+                circle(canvas.width/3.5+spacing,qheight,15,0,2*Math.PI,true,"#777");
+                spacing += 35;
             } while (spacing < maxspacing);
         } else {
             maxspacing = array[index]*25;
             do {
-                rect(canvas.width/3.5+spacing,qheight,25,25,"#f00");
-                spacing += 30;
+                circle(canvas.width/3.5+spacing,qheight,15,0,2*Math.PI,true,"#f00");
+                spacing += 35;
             } while (spacing < maxspacing);
         }
-        text("Q"+qnum,canvas.width/3.5,qheight-10,"bold 18px Muli","center");
-        qheight += 60;
+        qheight += 65;
         qnum++
     });
 }
