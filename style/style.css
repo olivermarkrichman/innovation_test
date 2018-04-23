@@ -58,11 +58,7 @@ html, body {
   box-sizing: border-box;
 }
 
-.questions ul li span:nth-of-type(2) {
-  text-align: center;
-}
-
-.questions ul li span:nth-of-type(3) {
+.questions ul li span:last-of-type {
   text-align: right;
 }
 
