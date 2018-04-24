@@ -1,79 +1,91 @@
 //Create Canvas
 var canvas = document.getElementById("results_canvas");
-//Setting double height and width as well as real height and width
-//then scaling by two to prevent blurry edges on retina screen
+//Setting double height and width
 canvas.width = 1800;
 canvas.height = 1120;
+//Setting actual height and width
 canvas.style.width = "900px";
 canvas.style.height = "560px";
 c = canvas.getContext('2d');
+//Scaling the canvas by 2, this prevents blurry shape edges on retina screens
 c.scale(2,2);
-draw_gauge();
-var array = [5,5,5,5,5];
-//draw_gauge_dial(2.25);
 
 //Function to draw the gauge 
 function draw_gauge() {
-    //circle(canvas.width/4,250,200,0,2*Math.PI,true,"transparent",true,"#fff");
-    rect(canvas.width/4,200,10,200,"#fff",1.95,true,-5,0);//Notch 1
-    rect(canvas.width/4,200,10,200,"#fff",2.25,true,-5,0);//Notch 2
-    rect(canvas.width/4,200,10,200,"#fff",2.55,true,-5,0);//Notch 3
-    rect(canvas.width/4,200,10,200,"#fff",2.85,true,-5,0);//Notch 4
-    rect(canvas.width/4,200,10,200,"#fff",3.15,true,-5,0);//Notch 5
-    rect(canvas.width/4,200,10,200,"#fff",3.45,true,-5,0);//Notch 6
-    rect(canvas.width/4,200,10,200,"#fff",3.75,true,-5,0);//Notch 7
-    rect(canvas.width/4,200,10,200,"#fff",4.05,true,-5,0);//Notch 8
-    rect(canvas.width/4,200,10,200,"#fff",4.35,true,-5,0);//Notch 9
+    //Notch starting angle
+    var n_angle = 1.95
+    //Loop to generate gauge notches.
+    do {
+        //draw the notches, using the looping n_angle to change the angle.
+        rect(canvas.width/4,200,10,200,"#fff",n_angle,true,-5,0);//Notches
+        //Add spacing between the dots
+        n_angle += 0.3;
+        //Do this until the angle reaches 4.35
+    } while (n_angle < 4.35);
+
     circle(canvas.width/4,200,150,0,2*Math.PI,true,"#333"); //Cover up to create dial
-    var img = document.getElementById("bulb");
-    c.drawImage(img,canvas.width/4-15,90,30,40);
-    //Examples
-    //rect(10,10,50,50,"#ffffff");
-    //rect(10,10,50,50,"#ffffff",0.5); Rotated rectangle
-    //text("tom",200,200,"18px Arial","center","#00ff00");
-    //a_text("oliver",300,300,0,"18px Arial","#0000ff");
-    //circle(250,150,120,0,2*Math.PI,true,"#fff000");
+    var img = document.getElementById("bulb"); //Put the lightbulb image into img variable
+    c.drawImage(img,canvas.width/4-15,90,30,40); //Draw the lightbulb icon from image
 }
 
 //Function to generate the gauge dial
 function draw_gauge_dial(gaugeposition) {
-    //Clear the Canvas to redraw the Gauge
+    //Clear the Canvas to redraw the gauge
     c.clearRect(0, 0, canvas.width, canvas.height);
-    //Call the Gauge notchs on each redraw
+    //Call the gauge notchs on each redraw
     draw_gauge();
-    //Reposition needle on Gauge
-    rect(canvas.width/4,200,6,180,"rgba(255,0,0,0.85)",gaugeposition,true,-3,0);
-    circle(canvas.width/4,200,25,0,2*Math.PI,true,"#000");
-    circle(canvas.width/4,200,20,0,2*Math.PI,true,"#fff");
+    //Reposition needle on gauge
+    rect(canvas.width/4,200,6,180,"rgba(255,0,0,0.85)",gaugeposition,true,-3,0); //Dial needle
+    circle(canvas.width/4,200,25,0,2*Math.PI,true,"#000"); //Dial outline
+    circle(canvas.width/4,200,20,0,2*Math.PI,true,"#fff"); //Dial cover
 }
 
-function draw_grey_bars() {
+//Function to generate the grey dots
+function draw_grey_dots() {
+    //Question height
     var qheight = 285;
+    //Question Number
     var qnum = 1;
+    //Loop through each input
     $("input[type=range]").each(function(index) {
+        //Space between dots
         var spacing = 0;
+        //Create 10 dots for each question
         do {
             circle(canvas.width/3.5+spacing,qheight,15,0,2*Math.PI,true,"#777");
+            //Add spacing between the dots
             spacing += 35;
-        } while (spacing < 270);
+        } while (spacing < 270); //Loop until ten dots are made
+        //Add text to show Question number next to each row of dots.
         text("Q"+qnum,canvas.width/3.5,qheight-25,"bold 18px Muli","center","#fff");
+        //Add spacing to height between questions
         qheight += 65;
+        //Increase question number each time.
         qnum++
     });
 }
 
-function draw_bars(array) {
-    draw_grey_bars();
+//Function to draw the red dots, updated by the array.
+function draw_dots(array) {
+    //Call the grey dots to be drawn to show dots that aren't filled.
+    draw_grey_dots();
+    //Set question height
     var qheight = 285;
+    //Set question number
     var qnum = 1;
+    //Loop through each slider
     $("input[type=range]").each(function(index) {
+        //space between dots
         var spacing = 0;
+        //Iteration to take the slider value and fill the dot with red or not
         if (array[index] < 1) {
+            //If the value is 0 then make sure entire row is grey
             do {
                 circle(canvas.width/3.5+spacing,qheight,15,0,2*Math.PI,true,"#777");
                 spacing += 35;
             } while (spacing < maxspacing);
         } else {
+            //If value is 1 or more then fill correct amount red.
             maxspacing = array[index]*25;
             do {
                 circle(canvas.width/3.5+spacing,qheight,15,0,2*Math.PI,true,"#f00");
@@ -121,6 +133,7 @@ function radarGraph (array) {
 function rect(x,y,width,height,fillcolour,angle,rotateoffset,urx,ury) {
     rx = 0;
     ry = 0;
+    //If rotateoffset is called and used then use it to offset the shape by a specific amount.
     if (rotateoffset == true) {
         rx = urx;
         ry = ury;
@@ -167,22 +180,35 @@ function a_text(text,newx,newy,angle,font,fillcolour) {
     c.fillText(text, 0, 0); //Write the text, x and y set to 0 for translation purposes.
     c.restore(); //Restore saved position on canvas.
 }
+
 $(document).ready(function() {
+    //Define the slider result array
     var sliderResult = [];
+    //Define the index
     var index = 0;
+    //Define the array with default values of 5
+    var array = [5,5,5,5,5];
+    //Detecting slider changes
     $("input[type=range]").on("change", function() {
+        //Define the final result
         var finalResult = 0;
+        //Loop through each input
         $("input[type=range]").each(function(index) {
+            //Get current slider value and put into the result array
             sliderResult[index] = $(this).val();
+            //The final result is each slider value added together
             finalResult += parseInt(sliderResult[index]);
         });
         finalResult = finalResult;
+        //Create a percentage from the final result
         var finalPercent = ((finalResult/50)*100);
+        //Prevent decimal points in the percentage by rounding
         finalPercent = parseFloat(Math.round(finalPercent * 100) / 100).toFixed(0);
+        //Draw the dial using the final result, 1.95 is the angle needed for lowest end of the scale and for anything above zero the result needs to be divided by the most you can get (50)
         draw_gauge_dial(((finalResult/50)*2.4)+1.95);
         array = [sliderResult[0],sliderResult[1],sliderResult[2],sliderResult[3],sliderResult[4]];
         radarGraph(array);
-        draw_bars(array);
+        draw_dots(array);
         $('.resultPercent').html(finalPercent);
     });
     
@@ -191,5 +217,5 @@ $(document).ready(function() {
     //Call initial default radar graph
     radarGraph(array);
     //call bar chart
-    draw_bars(array);
+    draw_dots(array);
 });
