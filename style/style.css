@@ -21,6 +21,7 @@ html, body {
   bottom: 0;
   left: 0;
   overflow: auto;
+  z-index: 101;
 }
 
 .questions ul {
